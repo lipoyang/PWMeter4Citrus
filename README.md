@@ -50,7 +50,7 @@ LSB is equivalent to the resolution specified by PWMeter::begin(). If no new mea
 ## PWMeter::getLast()
 Gets the last measured pulse width. Bufferd measurement values are discarded.
 
-### returns: パルス幅
+### returns: pulse width
 LSB is equivalent to the resolution specified by PWMeter::begin(). If no new measurement value, it returns 0xFFFF.
 
 ## PWMeter::stop()
