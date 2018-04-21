@@ -1,10 +1,15 @@
 # PWMeter for GR-CITRUS
+
+[Japanese README (和文ドキュメント)](README-ja.md)
+
 Pulse width meter class library for GR-CITRUS
 
-## Target
-This class is just for GR-CITRUS.
+## PWMeter::begin(pin)
+## PWMeter::begin(pin, polarity)
+## PWMeter::begin(pin, polarity, resolution)
+Begins measurement of pulse width.
 
-## Input pin
+### pin: pulse input pin
 Pin 0,1,2,3,4,7,8,10,11,12,13 are supported for pulse input. They are divided into following groups. Same resolution setting is applied to same group pins. Just the last setting is effective.
 
 - 0,1 (using MTU1)
@@ -17,52 +22,44 @@ Following pins can not be used together due to resource conflict.
 - 2 and 11 (using MTIOC3C)
 - 3 and 12 (using MTIOC3A)
 
-## Polarity
-Pulse polarity (positive or negative) is selectable.
+### polarity: polarity of pulse (optional)
+Pulse polarity (positive or negative) is selectable. If omitted, the default is positive.
+- PWMETER_POSITIVE: positive logic (default)
+- PWMETER_NEGATIVE: negative logic
 
-## Resolution
-The meter resolution is selectable from the following:
+### resolution: resolution of measurement (optional)
+The meter resolution is selectable from the following. If omitted, the default is 1usec.
 
-- 1/48usec :Max  1365usec
-- 1/12usec :Max  5461usec
-- 1/3usec  :Max 21845usec
-- 1usec    :Max 21845usec (default)
-- 4/3usec  :Max 87380usec
+- PWMETER_48TH_USEC: 1/48usec / Max  1365usec
+- PWMETER_12TH_USEC: 1/12usec / Max  5461usec
+- PWMETER_3RD_USEC: 1/3usec / Max 21845usec
+- PWMETER_1USEC: 1usec / Max 21845usec (default)
+- PWMETER_4_3RD_USEC: 4/3usec / Max 87380usec
+
+## PWMeter::available()
+Checks whether or not new pulses are detected.
+
+### returns: true or false
+
+## PWMeter::get()
+Gets the measured pulse width. Measurement values are buffered up to 32 items.
+
+### returns: pulse width
+LSB is equivalent to the resolution specified by PWMeter::begin(). If no new measurement value, it returns 0xFFFF.
+
+## PWMeter::getLast()
+Gets the last measured pulse width. Bufferd measurement values are discarded.
+
+### returns: パルス幅
+LSB is equivalent to the resolution specified by PWMeter::begin(). If no new measurement value, it returns 0xFFFF.
+
+## PWMeter::stop()
+
+Stops mesurement.
+
+## PWMeter::restart()
+
+Restarts mesurement.
 
 ## Notes
 This class uses MTUs (Multi function timer pulse units). Therefore, it conflicts with Servo library, and PWM output(analogWrite).
-
-***
-# PWMeter for GR-CITRUS (日本語)
-GR-CITRUS用のパルス幅計測クラスライブラリです。
-
-## ターゲット
-このクラスは、GR-CITRUS専用です。
-
-## 入力ピン
-ピン 0,1,2,3,4,7,8,10,11,12,13 がパルス入力に対応しています。これらのピンは下記のグループに分かれます。同じグループのピンには同じ計測制度が適用されます。最後に設定した計測制度が有効です。
-
-- 0,1 (MTU1を使用)
-- 2,3,4,10,11,12,13 (MTU3を使用)
-- 4 (MTU4を使用)
-- 7,8 (MTU0を使用)
-
-下記のピンはリソース競合のため同時に使うことはできません。
-
-- 2 と 11 (MTIOC3Cを使用)
-- 3 と 12 (MTIOC3Aを使用)
-
-## 極性
-パルス極性(正論理か負論理か)は選択できます。
-
-## 計測精度
-計測精度は下記から選択できます。
-
-- 1/48usec :最大  1365usec
-- 1/12usec :最大  5461usec
-- 1/3usec  :最大 21845usec
-- 1usec    :最大 21845usec (デフォルト)
-- 4/3usec  :最大 87380usec
-
-## 注意点
-このクラスはMTU(マルチファンクションタイマパルスユニット)を使用しています。そのため、ServoライブラリおよびピンPWM出力(analogWrite)と競合します。
