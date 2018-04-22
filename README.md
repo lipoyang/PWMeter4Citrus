@@ -10,12 +10,12 @@ Pulse width meter class library for GR-CITRUS
 Begins measurement of pulse width.
 
 ### pin: pulse input pin
-Pin 0,1,2,3,4,7,8,10,11,12,13 are supported for pulse input. They are divided into following groups. Same resolution setting is applied to same group pins. Just the last setting is effective.
+Pin 0, 1, 2, 3, 4, 7, 8, 10, 11, 12, 13 are supported for pulse input. They are divided into following groups. Same resolution setting is applied to same group pins. Just the last setting is effective.
 
-- 0,1 (using MTU1)
-- 2,3,4,10,11,12,13 (using MTU3)
+- 0, 1 (using MTU1)
+- 2, 3, 4, 10, 11, 12, 13 (using MTU3)
 - 4 (using MTU4)
-- 7,8  (using MTU0)
+- 7, 8  (using MTU0)
 
 Following pins can not be used together due to resource conflict.
 
@@ -62,4 +62,4 @@ Stops mesurement.
 Restarts mesurement.
 
 ## Notes
-This class uses MTUs (Multi function timer pulse units). Therefore, it conflicts with Servo library, and PWM output(analogWrite).
+This class uses MTUs (Multi function timer pulse units). Therefore, it conflicts with PWM output (Servo library and analogWrite) of pin 0, 1, 5, 7, 8 and 11. It's under investigation.
