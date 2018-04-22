@@ -3,6 +3,8 @@
 
 GR-CITRUS用のパルス幅計測クラスライブラリです。
 
+<br>
+
 ## PWMeter::begin(pin)
 ## PWMeter::begin(pin, polarity)
 ## PWMeter::begin(pin, polarity, resolution)
@@ -35,10 +37,14 @@ GR-CITRUS用のパルス幅計測クラスライブラリです。
 - PWMETER_1USEC: 1usec / 最大 21845usec (デフォルト)
 - PWMETER_4_3RD_USEC: 4/3usec / 最大 87380usec
 
+<br>
+
 ## PWMeter::available()
 新しくパルスを検出したかを返します。
 
 ### 戻り値: true か false
+
+<br>
 
 ## PWMeter::get()
 計測したパルス幅を取得します。計測値は最大32個までバッファされます。
@@ -46,19 +52,27 @@ GR-CITRUS用のパルス幅計測クラスライブラリです。
 ### 戻り値: パルス幅
 最下位ビットがPWMeter::begin()で指定した解像度に相当します。新しい計測値がないときは0xFFFFを返します。
 
+<br>
+
 ## PWMeter::getLast()
 最後に計測したパルス幅を取得します。バッファされていた古い計測値は破棄されます。
 
 ### 戻り値: パルス幅
 最下位ビットがPWMeter::begin()で指定した解像度に相当します。新しい計測値がないときは0xFFFFを返します。
 
+<br>
+
 ## PWMeter::stop()
 
 計測を停止します。
 
+<br>
+
 ## PWMeter::restart()
 
 計測を再開します。
+
+<br>
 
 ## 注意点
 このクラスはMTU(マルチファンクションタイマパルスユニット)を使用しています。そのため、ピン0, 1, 5, 7, 8, 11のPWM出力 (ServoライブラリおよびanalogWrite) と競合します。詳細は調査中です。

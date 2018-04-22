@@ -4,6 +4,8 @@
 
 Pulse width meter class library for GR-CITRUS
 
+<br>
+
 ## PWMeter::begin(pin)
 ## PWMeter::begin(pin, polarity)
 ## PWMeter::begin(pin, polarity, resolution)
@@ -36,10 +38,14 @@ The meter resolution is selectable from the following. If omitted, the default i
 - PWMETER_1USEC: 1usec / Max 21845usec (default)
 - PWMETER_4_3RD_USEC: 4/3usec / Max 87380usec
 
+<br>
+
 ## PWMeter::available()
 Checks whether or not new pulses are detected.
 
 ### returns: true or false
+
+<br>
 
 ## PWMeter::get()
 Gets the measured pulse width. Measurement values are buffered up to 32 items.
@@ -47,19 +53,27 @@ Gets the measured pulse width. Measurement values are buffered up to 32 items.
 ### returns: pulse width
 LSB is equivalent to the resolution specified by PWMeter::begin(). If no new measurement value, it returns 0xFFFF.
 
+<br>
+
 ## PWMeter::getLast()
 Gets the last measured pulse width. Bufferd measurement values are discarded.
 
 ### returns: pulse width
 LSB is equivalent to the resolution specified by PWMeter::begin(). If no new measurement value, it returns 0xFFFF.
 
+<br>
+
 ## PWMeter::stop()
 
 Stops mesurement.
 
+<br>
+
 ## PWMeter::restart()
 
 Restarts mesurement.
+
+<br>
 
 ## Notes
 This class uses MTUs (Multi function timer pulse units). Therefore, it conflicts with PWM output (Servo library and analogWrite) of pin 0, 1, 5, 7, 8 and 11. It's under investigation.
