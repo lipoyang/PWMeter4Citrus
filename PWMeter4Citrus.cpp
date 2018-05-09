@@ -116,8 +116,6 @@ PWMeter::PWMeter()
  */
 uint8_t PWMeter::isr(uint16_t cnt)
 {
-    uint8_t ret;
-    
     pushi();    // backup the interrupt status
     cli();      // disable interrupts
     
