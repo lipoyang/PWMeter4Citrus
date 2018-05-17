@@ -343,11 +343,14 @@ void PWMeter::begin(int pin, int polarity, int resolution)
         this->pin = 0xFF;   // invalid value
     }
     
+// Don't lock because GR-CITRUS library doesn't unlock
+#if 0
     // lock the protect of module stop
     SYSTEM.PRCR.WORD = 0xA500;
     // lock the protect of pin function selector
     MPC.PWPR.BIT.PFSWE = 0;
     MPC.PWPR.BIT.B0WI = 1;
+#endif
     
     popi();     // restore the interrupt status
 }

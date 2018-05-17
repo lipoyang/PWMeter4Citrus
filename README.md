@@ -76,4 +76,11 @@ Restarts mesurement.
 <br>
 
 ## Notes
-This class uses MTUs (Multi function timer pulse units). Therefore, it conflicts with PWM output (Servo library and analogWrite) of pin 0, 1, 5, 7, 8 and 11. It's under investigation.
+This class uses MTUs (Multi function timer pulse units). Therefore, it conflicts with PWM output (Servo library and analogWrite) of pin 0 and 11. Timer resouces used by Servo library and analogWrite are shown below.
+- 0: MTU1 (conflicts with pulse width meter of pin 0, 1)
+- 1: TPU3
+- 5: TPU4
+- 7: TPU0
+- 8: TPU0
+- 11: MTU3 (conflicts with pulse width meter of pin 2, 3, 4, 10, 11, 12, 13)
+- others: TPU2
