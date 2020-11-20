@@ -1,4 +1,9 @@
 # PWMeter for GR-CITRUS
+
+注意：このライブラリは古いバージョンで今では非推奨です。[PWMeter4GR](https://github.com/lipoyang/PWMeter4GR)をお使いください。
+
+<br>
+
 [English README (英文ドキュメント)](README.md)
 
 GR-CITRUS用のパルス幅計測クラスライブラリです。
