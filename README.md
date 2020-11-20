@@ -1,5 +1,9 @@
 # PWMeter for GR-CITRUS
 
+NOTE: This library is a old version and now deprecated. [PWMeter4GR](https://github.com/lipoyang/PWMeter4GR) is recommended.
+
+<br>
+
 [Japanese README (和文ドキュメント)](README-ja.md)
 
 Pulse width meter class library for GR-CITRUS
